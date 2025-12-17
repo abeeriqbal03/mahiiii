@@ -1,51 +1,86 @@
-// Cart array to store products
+// Universal Cart System for BagBag
 let cart = [];
 
-// Get cart from localStorage if exists
+// Load cart from localStorage on page load
 if (localStorage.getItem('bagbag-cart')) {
     cart = JSON.parse(localStorage.getItem('bagbag-cart'));
     updateCartCount();
 }
 
-// Add to cart functionality
+// Initialize cart when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    const addToCartButtons = document.querySelectorAll('.btn-cart');
+    initializeCart();
+});
+
+// Initialize cart functionality
+function initializeCart() {
+    // Get all "Add to Cart" buttons (multiple selectors for different pages)
+    const addToCartButtons = document.querySelectorAll('.btn, .add-to-cart-btn, .btn-cart');
     
-    addToCartButtons.forEach((button, index) => {
-        button.addEventListener('click', function() {
-            const card = this.closest('.card');
-            const productName = card.querySelector('h3').textContent;
-            const productPrice = card.querySelector('.price').textContent;
-            const productImage = card.querySelector('.product-img').src;
-            
-            // Create product object
-            const product = {
-                id: Date.now() + index,
-                name: productName,
-                price: productPrice,
-                image: productImage,
-                quantity: 1
-            };
-            
-            // Check if product already exists in cart
-            const existingProduct = cart.find(item => item.name === product.name);
-            
-            if (existingProduct) {
-                existingProduct.quantity++;
-            } else {
-                cart.push(product);
-            }
-            
-            // Save to localStorage
-            localStorage.setItem('bagbag-cart', JSON.stringify(cart));
-            
-            // Update cart UI
-            updateCartCount();
-            showCartNotification(productName);
-            
-            // Auto open cart
-            openCart();
-        });
+    addToCartButtons.forEach((button) => {
+        // Check if button is for adding to cart
+        const buttonText = button.textContent.trim().toLowerCase();
+        const isCartButton = buttonText.includes('add to cart') || 
+                           button.classList.contains('add-to-cart-btn') ||
+                           button.classList.contains('btn-cart');
+        
+        if (isCartButton) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const card = this.closest('.card, .sale-product-card');
+                if (!card) return;
+                
+                // Try different selectors for product name
+                let productName = '';
+                const nameElement = card.querySelector('h4, h3, h5, .product-name');
+                if (nameElement) {
+                    productName = nameElement.textContent.trim();
+                }
+                
+                // Try different selectors for price
+                let productPrice = 'Pkr 0';
+                const priceElement = card.querySelector('.price, .sale-price');
+                if (priceElement) {
+                    productPrice = priceElement.textContent.trim();
+                }
+                
+                // Get product image
+                let productImage = '';
+                const imgElement = card.querySelector('img');
+                if (imgElement) {
+                    productImage = imgElement.src;
+                }
+                
+                // Create product object
+                const product = {
+                    id: Date.now(),
+                    name: productName,
+                    price: productPrice,
+                    image: productImage,
+                    quantity: 1
+                };
+                
+                // Check if product already exists in cart
+                const existingProduct = cart.find(item => item.name === product.name);
+                
+                if (existingProduct) {
+                    existingProduct.quantity++;
+                } else {
+                    cart.push(product);
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('bagbag-cart', JSON.stringify(cart));
+                
+                // Update cart UI
+                updateCartCount();
+                showCartNotification(productName);
+                
+                // Auto open cart
+                openCart();
+            });
+        }
     });
     
     // Cart icon click to open sidebar
@@ -56,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
             openCart();
         });
     }
-});
+}
 
 // Update cart count badge
 function updateCartCount() {
@@ -65,7 +100,10 @@ function updateCartCount() {
     if (!cartBadge) {
         cartBadge = document.createElement('span');
         cartBadge.className = 'cart-badge';
-        document.querySelector('.cart a').appendChild(cartBadge);
+        const cartLink = document.querySelector('.cart a');
+        if (cartLink) {
+            cartLink.appendChild(cartBadge);
+        }
     }
     
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -80,6 +118,12 @@ function updateCartCount() {
 
 // Show notification when product added
 function showCartNotification(productName) {
+    // Remove existing notification if any
+    const existingNotification = document.querySelector('.cart-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
     const notification = document.createElement('div');
     notification.className = 'cart-notification';
     notification.innerHTML = `
@@ -122,8 +166,8 @@ function closeCart() {
     const cartSidebar = document.querySelector('.cart-sidebar');
     const cartOverlay = document.querySelector('.cart-overlay');
     
-    cartSidebar.classList.remove('open');
-    cartOverlay.classList.remove('active');
+    if (cartSidebar) cartSidebar.classList.remove('open');
+    if (cartOverlay) cartOverlay.classList.remove('active');
 }
 
 // Create cart sidebar HTML
@@ -139,7 +183,7 @@ function createCartSidebar() {
             <div class="cart-footer">
                 <div class="cart-total">
                     <span>Total:</span>
-                    <span class="total-price">$0.00</span>
+                    <span class="total-price">$0</span>
                 </div>
                 <button class="checkout-btn">Checkout</button>
             </div>
@@ -164,6 +208,8 @@ function createCartSidebar() {
 function renderCartItems() {
     const cartItemsContainer = document.querySelector('.cart-items');
     
+    if (!cartItemsContainer) return;
+    
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = `
             <div class="empty-cart">
@@ -171,7 +217,7 @@ function renderCartItems() {
                 <p>Your cart is empty</p>
             </div>
         `;
-        document.querySelector('.total-price').textContent = '$0.00';
+        document.querySelector('.total-price').textContent = '$0';
         return;
     }
     
@@ -179,7 +225,9 @@ function renderCartItems() {
     let total = 0;
     
     cart.forEach((item, index) => {
-        const itemPrice = parseFloat(item.price.replace('$', '').replace(',', ''));
+        // Extract price number from string (handle "Pkr 8000", "$79.99", etc.)
+        let priceStr = item.price.replace(/[^\d.,]/g, '').replace(',', '');
+        const itemPrice = parseFloat(priceStr) || 0;
         const itemTotal = itemPrice * item.quantity;
         total += itemTotal;
         
@@ -202,11 +250,15 @@ function renderCartItems() {
         cartItemsContainer.appendChild(cartItem);
     });
     
-    document.querySelector('.total-price').textContent = '$' + total.toFixed(2);
+    // Display total (detect currency from first item)
+    const currency = cart[0].price.includes('Pkr') ? 'Pkr ' : '$';
+    document.querySelector('.total-price').textContent = currency + total.toFixed(2);
 }
 
 // Update quantity
 function updateQuantity(index, change) {
+    if (!cart[index]) return;
+    
     cart[index].quantity += change;
     
     if (cart[index].quantity <= 0) {
@@ -224,4 +276,14 @@ function removeFromCart(index) {
     localStorage.setItem('bagbag-cart', JSON.stringify(cart));
     updateCartCount();
     renderCartItems();
+}
+
+// Clear entire cart
+function clearCart() {
+    if (confirm('Are you sure you want to clear your cart?')) {
+        cart = [];
+        localStorage.removeItem('bagbag-cart');
+        updateCartCount();
+        renderCartItems();
+    }
 }
