@@ -72,12 +72,12 @@
 
         <div class="input-group">
             <i class="fa-solid fa-user"></i>
-            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="text" id="name" placeholder="Your Name" required pattern="[A-Za-z\s]{3,15}">
         </div>
 
         <div class="input-group">
             <i class="fa-solid fa-envelope"></i>
-            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="email" id="email" placeholder="Your Email" required pattern="[a-z0-9]{12}@[a-z]{5}\.[a-z]{3}">
         </div>
 
         <div class="input-group">
