@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11.11 Mega Sale - BAG BAG</title>
+    <link rel="stylesheet" href="sale.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="nav">
+    <div class="main-logo">
+      <a href="index.html">BAG BAG <span class="sub-logo">-Your everyday carry-</span></a>
+    </div>
+    <div id="hamburger">☰</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">Collection
+        <ul class="dropdown-menu">
+          <li class="sub-dropdown"><a href="women.html">Women</a>
+            <ul class="sub-menu">
+              <li><a href="viewall.html">View All</a></li>
+              <li><a href="shoulderbag.html">Shoulder Bag</a></li>
+              <li><a href="tote.html">Tote Bags</a></li>
+              <li><a href="crossbodybag.html">Crossbody Bag</a></li>
+              <li><a href="cluthes.html">Clutches</a></li>
+            </ul>
+          </li>
+          <li class="sub-dropdown"><a href="#">Men</a>
+            <ul class="sub-menu">
+              <li><a href="backpacks.html">Backpacks</a></li>
+              <li><a href="massenger.html">Messenger Bag</a></li>
+              <li><a href="#">All</a></li>
+            </ul>
+          </li>
+          <li><a href="laptop.html">Laptop Bags</a></li>
+          <li><a href="kids.html">Kids Bags</a></li>
+          <li><a href="travel.html">Traveling Bags</a></li>
+        </ul>
+      </li>
+      <li class="dropdown2">Brands
+        <ul class="dropdown-menu2">
+          <li><a href="tourister.html">Tourister</a></li>
+          <li><a href="Chanel.html">Chanel</a></li>
+          <li><a href="gucci.html">Gucci</a></li>
+        </ul>
+      </li>
+      <li><a href="sale.html">Sale</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contactus.html">Contact</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="queires.html">Queries</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li class="cart"><a href=""><i class="fa fa-shopping-cart"></i></a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<!-- ===== SALE HERO BANNER ===== -->
+<section class="sale-hero">
+    <div class="hero-bg-animation"></div>
+    <div class="hero-content">
+        <div class="sale-badge-big">
+            <span class="badge-top">MEGA</span>
+            <span class="badge-main">11.11</span>
+            <span class="badge-bottom">SALE</span>
+        </div>
+        <h1 class="hero-title">BIGGEST SALE OF THE YEAR</h1>
+        <p class="hero-subtitle">Up to 70% OFF on Premium Bags</p>
+        
+        <!-- Countdown Timer -->
+        <div class="countdown-timer">
+            <div class="timer-title">SALE ENDS IN</div>
+            <div class="timer-boxes">
+                <div class="timer-box">
+                    <span class="timer-number" id="days">02</span>
+                    <span class="timer-label">Days</span>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-box">
+                    <span class="timer-number" id="hours">14</span>
+                    <span class="timer-label">Hours</span>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-box">
+                    <span class="timer-number" id="minutes">35</span>
+                    <span class="timer-label">Minutes</span>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-box">
+                    <span class="timer-number" id="seconds">42</span>
+                    <span class="timer-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="hero-cta">
+            <i class="fas fa-fire"></i> Shop Now
+        </button>
+
+        <div class="hero-features">
+            <div class="feature-item">
+                <i class="fas fa-truck"></i>
+                <span>Free Shipping</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-undo"></i>
+                <span>Easy Returns</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Payment</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DEAL CATEGORIES ===== -->
+<section class="deal-categories">
+    <div class="categories-container">
+        <div class="category-card">
+            <div class="category-icon">
+                <i class="fas fa-percentage"></i>
+            </div>
+            <h3>Up to 70% OFF</h3>
+            <p>Limited Time Offer</p>
+        </div>
+        <div class="category-card">
+            <div class="category-icon">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <h3>Flash Deals</h3>
+            <p>Hourly Updates</p>
+        </div>
+        <div class="category-card">
+            <div class="category-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h3>Free Gifts</h3>
+            <p>On Orders $100+</p>
+        </div>
+        <div class="category-card">
+            <div class="category-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <h3>Extra 10% OFF</h3>
+            <p>For Members</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FLASH DEALS SECTION ===== -->
+<section class="flash-deals-section">
+    <div class="section-header">
+        <h2 class="section-title">
+            <i class="fas fa-fire-alt"></i> FLASH DEALS
+        </h2>
+        <div class="flash-timer">
+            Ending in: <span class="flash-time">02:45:30</span>
+        </div>
+    </div>
+
+    <div class="products-grid">
+        
+        <!-- Flash Deal Product 1 -->
+        <div class="sale-product-card flash">
+            <div class="discount-badge flash-badge">
+                <span class="discount-percent">-60%</span>
+                <span class="discount-label">FLASH</span>
+            </div>
+            <div class="flash-indicator">
+                <i class="fas fa-bolt"></i> Flash Deal
+            </div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=500" alt="Flash Deal Bag">
+                <div class="sold-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                    <span class="sold-text">75% Sold</span>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Premium Leather Crossbody</h3>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(4.5)</span>
+                </div>
+                <div class="price-box">
+                    <span class="sale-price">$79.99</span>
+                    <span class="original-price">$199.99</span>
+                    <span class="save-amount">Save $120</span>
+                </div>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Flash Deal Product 2 -->
+        <div class="sale-product-card flash">
+            <div class="discount-badge flash-badge">
+                <span class="discount-percent">-55%</span>
+                <span class="discount-label">FLASH</span>
+            </div>
+            <div class="flash-indicator">
+                <i class="fas fa-bolt"></i> Flash Deal
+            </div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1564422170194-896b89110ef8?w=500" alt="Flash Deal Bag">
+                <div class="sold-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <span class="sold-text">60% Sold</span>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Designer Shoulder Bag</h3>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(5.0)</span>
+                </div>
+                <div class="price-box">
+                    <span class="sale-price">$89.99</span>
+                    <span class="original-price">$199.99</span>
+                    <span class="save-amount">Save $110</span>
+                </div>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Flash Deal Product 3 -->
+        <div class="sale-product-card flash">
+            <div class="discount-badge flash-badge">
+                <span class="discount-percent">-70%</span>
+                <span class="discount-label">FLASH</span>
+            </div>
+            <div class="flash-indicator">
+                <i class="fas fa-bolt"></i> Flash Deal
+            </div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500" alt="Flash Deal Bag">
+                <div class="sold-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                    <span class="sold-text">90% Sold - Hurry!</span>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Elegant Evening Clutch</h3>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(4.2)</span>
+                </div>
+                <div class="price-box">
+                    <span class="sale-price">$44.99</span>
+                    <span class="original-price">$149.99</span>
+                    <span class="save-amount">Save $105</span>
+                </div>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Flash Deal Product 4 -->
+        <div class="sale-product-card flash">
+            <div class="discount-badge flash-badge">
+                <span class="discount-percent">-50%</span>
+                <span class="discount-label">FLASH</span>
+            </div>
+            <div class="flash-indicator">
+                <i class="fas fa-bolt"></i> Flash Deal
+            </div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=500" alt="Flash Deal Bag">
+                <div class="sold-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%"></div>
+                    </div>
+                    <span class="sold-text">45% Sold</span>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Vintage Tote Bag</h3>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(4.7)</span>
+                </div>
+                <div class="price-box">
+                    <span class="sale-price">$99.99</span>
+                    <span class="original-price">$199.99</span>
+                    <span class="save-amount">Save $100</span>
+                </div>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== MEGA DEALS SECTION ===== -->
+<section class="mega-deals-section">
+    <div class="section-header">
+        <h2 class="section-title">
+            <i class="fas fa-tags"></i> MEGA DEALS
+        </h2>
+        <p class="section-subtitle">Unbeatable prices on top brands</p>
+    </div>
+
+    <div class="products-grid">
+        
+        <!-- Mega Deal Products -->
+        <div class="sale-product-card">
+            <div class="discount-badge mega-badge">
+                <span class="discount-percent">-45%</span>
+            </div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?w=500" alt="Mega Deal">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Luxury Bucket Bag</h3>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(5.0)</span>
+                </div>
+                <div class="price-box">
+                    <span class="sale-price">$109.99</span>
+                    <span class="original-price">$199.99</span>
+                    <span class="save-amount">Save $90</span>
+                </div>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="sale-product-card">
+            <div class="discount-badge mega-badge">
+                <span class="discount-percent">-40%</span>
+            </div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1563555953980-e0c1c8f61f46?w=500" alt="Mega Deal">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Classic Chain Bag</h3>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(4.3)</span>
+                </div>
+                <div class="price-box">
+                    <span class="sale-price">$119.99</span>
+                    <span class="original-price">$199.99</span>
+                    <span class="save-amount">Save $80</span>
+                </div>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="sale-product-card">
+            <div class="discount-badge mega-badge">
+                <span class="discount-percent">-50%</span>
+            </div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1584670747037-c1c373de2b8b?w=500" alt="Mega Deal">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Modern Hobo Bag</h3>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(4.6)</span>
+                </div>
+                <div class="price-box">
+                    <span class="sale-price">$99.99</span>
+                    <span class="original-price">$199.99</span>
+                    <span class="save-amount">Save $100</span>
+                </div>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="sale-product-card">
+            <div class="discount-badge mega-badge">
+                <span class="discount-percent">-35%</span>
+            </div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1602003805128-c8d5c575bb7e?w=500" alt="Mega Deal">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Structured Satchel</h3>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(4.9)</span>
+                </div>
+                <div class="price-box">
+                    <span class="sale-price">$129.99</span>
+                    <span class="original-price">$199.99</span>
+                    <span class="save-amount">Save $70</span>
+                </div>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="sale-product-card">
+            <div class="discount-badge mega-badge">
+                <span class="discount-percent">-60%</span>
+            </div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=500" alt="Mega Deal">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Mini Crossbody Bag</h3>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(4.1)</span>
+                </div>
+                <div class="price-box">
+                    <span class="sale-price">$59.99</span>
+                    <span class="original-price">$149.99</span>
+                    <span class="save-amount">Save $90</span>
+                </div>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="sale-product-card">
+            <div class="discount-badge mega-badge">
+                <span class="discount-percent">-55%</span>
+            </div>
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?w=500" alt="Mega Deal">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Canvas Tote Bag</h3>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(4.4)</span>
+                </div>
+                <div class="price-box">
+                    <span class="sale-price">$44.99</span>
+                    <span class="original-price">$99.99</span>
+                    <span class="save-amount">Save $55</span>
+                </div>
+                <button class="add-to-cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== SALE BANNER ===== -->
+<section class="sale-banner">
+    <div class="banner-content">
+        <h2>DON'T MISS OUT!</h2>
+        <p>Extra 10% OFF with code: <span class="promo-code">MEGA1111</span></p>
+        <button class="banner-btn">Copy Code</button>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>BAG BAG</h3>
+            <p>Your everyday carry companion</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 BAG BAG. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
